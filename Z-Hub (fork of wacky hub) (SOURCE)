@@ -13,14 +13,14 @@ end
 -- showName, showIcon, configuration, locale, translations, translator, fallbackFont.
 -- Discord/KeySystem/ScriptID from Gen1 aren't part of that list, so they're dropped here.
 local Window = Rayfield:CreateWindow({
-    name = "Wacky Hub",
-    subtitle = "by RoboSubZero2",
+    name = "Z Hub",
+    subtitle = "by Areeb Z (fork of RoboSubZero2/Fisticuffs)",
     theme = "ember", -- closest built-in match to the old AmberGlow theme
-    showName = "Wacky Hub",
+    showName = "Z Hub",
     configuration = {
         autoSave = false,
         autoLoad = false,
-        fileName = "Wacky Hub",
+        fileName = "Z Hub",
     },
 })
 
@@ -41,7 +41,19 @@ end)
 
 local homeTab = Window:CreateTab({ name = "Home", icon = 4483362458 })
 
-homeTab:CreateSection({ name = "Welcome to Wacky Hub" })
+homeTab:CreateSection({ name = "Welcome to Z Hub" })
+
+homeTab:CreateButton({
+    name = "Credits",
+    description = "Z Hub is a fork - original source by RoboSubZero2/Fisticuffs",
+    callback = function()
+        Window:Notify({
+            title = "Credits",
+            content = "Z Hub by Areeb Z. Original source code by RoboSubZero2/Fisticuffs.",
+            duration = 6.5,
+        })
+    end,
+})
 
 homeTab:CreateButton({
     name = "Account",
@@ -193,11 +205,11 @@ homeTab:CreateButton({
     end,
 })
 
-if getgenv().WackyHubPingConn then
-    getgenv().WackyHubPingConn:Disconnect()
+if getgenv().ZHubPingConn then
+    getgenv().ZHubPingConn:Disconnect()
 end
 
-getgenv().WackyHubPingConn = RunService.Heartbeat:Connect(function()
+getgenv().ZHubPingConn = RunService.Heartbeat:Connect(function()
     local success, pingValue = pcall(function()
         return StatsService.Network.ServerStatsItem["Data Ping"]:GetValue()
     end)
@@ -241,11 +253,11 @@ local fpsCounterEnabled = false
 local fpsFrameCount = 0
 local fpsElapsed = 0
 
-if getgenv().WackyHubFpsConn then
-    getgenv().WackyHubFpsConn:Disconnect()
+if getgenv().ZHubFpsConn then
+    getgenv().ZHubFpsConn:Disconnect()
 end
 
-getgenv().WackyHubFpsConn = RunService.RenderStepped:Connect(function(deltaTime)
+getgenv().ZHubFpsConn = RunService.RenderStepped:Connect(function(deltaTime)
     if not fpsCounterEnabled then return end
 
     fpsFrameCount += 1
@@ -277,11 +289,11 @@ homeTab:CreateToggle({
 local antiAfkEnabled = false
 local VirtualUser = game:GetService("VirtualUser")
 
-if getgenv().WackyHubAntiAfkConn then
-    getgenv().WackyHubAntiAfkConn:Disconnect()
+if getgenv().ZHubAntiAfkConn then
+    getgenv().ZHubAntiAfkConn:Disconnect()
 end
 
-getgenv().WackyHubAntiAfkConn = Players.LocalPlayer.Idled:Connect(function()
+getgenv().ZHubAntiAfkConn = Players.LocalPlayer.Idled:Connect(function()
     if not antiAfkEnabled then return end
     VirtualUser:CaptureController()
     VirtualUser:ClickButton2(Vector2.new())
@@ -302,11 +314,11 @@ local jumpHeightValue = 10
 -- Disconnect any leftover loop from a previous run of this script before
 -- starting a new one, or re-executing without a full server rejoin leaves
 -- the old loop fighting the new one over WalkSpeed/JumpHeight forever.
-if getgenv().WackyHubWalkJumpConn then
-    getgenv().WackyHubWalkJumpConn:Disconnect()
+if getgenv().ZHubWalkJumpConn then
+    getgenv().ZHubWalkJumpConn:Disconnect()
 end
 
-getgenv().WackyHubWalkJumpConn = RunService.Heartbeat:Connect(function()
+getgenv().ZHubWalkJumpConn = RunService.Heartbeat:Connect(function()
     local char = Players.LocalPlayer.Character
     local hum = char and char:FindFirstChild("Humanoid")
     if hum then
@@ -847,11 +859,11 @@ Players.PlayerRemoving:Connect(function(player)
     removeESP(player)
 end)
 
-if getgenv().Z_HubESPConn then
-    getgenv().WackyHubESPConn:Disconnect()
+if getgenv().ZHubESPConn then
+    getgenv().ZHubESPConn:Disconnect()
 end
 
-getgenv().WackyHubESPConn = RunService.Heartbeat:Connect(function()
+getgenv().ZHubESPConn = RunService.Heartbeat:Connect(function()
     for player, _ in pairs(espObjects) do
         updateESP(player)
     end
