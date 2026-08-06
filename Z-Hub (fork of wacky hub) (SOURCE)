@@ -847,7 +847,7 @@ Players.PlayerRemoving:Connect(function(player)
     removeESP(player)
 end)
 
-if getgenv().WackyHubESPConn then
+if getgenv().Z_HubESPConn then
     getgenv().WackyHubESPConn:Disconnect()
 end
 
