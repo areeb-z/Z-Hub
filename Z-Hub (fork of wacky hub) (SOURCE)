@@ -14,8 +14,8 @@ end
 -- Discord/KeySystem/ScriptID from Gen1 aren't part of that list, so they're dropped here.
 local Window = Rayfield:CreateWindow({
     name = "Z Hub",
-    subtitle = "by Areeb Z (fork of RoboSubZero2/Fisticuffs)",
-    theme = "ember", -- closest built-in match to the old AmberGlow theme
+    subtitle = "by Areeb Z (Fork of Wacky Hub)",
+    theme = "amethyst", -- closest built-in match to the old AmberGlow theme
     showName = "Z Hub",
     configuration = {
         autoSave = false,
@@ -25,9 +25,9 @@ local Window = Rayfield:CreateWindow({
 })
 
 Window:Notify({
-    title = "Hai :)",
+    title = "Z Hub is loading(hang tight!)",
     content = "Script Has Loaded",
-    duration = 6.5,
+    duration = 2.5,
 })
 
 -- Toast whenever someone joins the server
