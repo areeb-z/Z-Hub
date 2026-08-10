@@ -15,7 +15,7 @@ end
 local Window = Rayfield:CreateWindow({
     name = "Z Hub",
     subtitle = "by Areeb Z (Fork of Wacky Hub)",
-    theme = "amethyst", -- closest built-in match to the old AmberGlow theme
+    theme = "cobalt", -- closest built-in match to the old AmberGlow theme
     showName = "Z Hub",
     configuration = {
         autoSave = false,
