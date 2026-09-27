@@ -26,7 +26,7 @@ local Window = Rayfield:CreateWindow({
 
 Window:Notify({
     title = "Z Hub is loading(hang tight!)",
-    content = "Script Has Loaded",
+    content = "Script's loading!",
     duration = 2.5,
 })
 
